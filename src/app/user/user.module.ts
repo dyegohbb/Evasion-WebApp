@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './component/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
 import { UserServiceService } from './service/user-service.service';
 import { UserRoutingModule } from './user-routing.module';
 
@@ -15,8 +14,7 @@ import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegisterComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,

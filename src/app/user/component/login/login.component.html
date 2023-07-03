@@ -1,22 +1,19 @@
-<div class="center margin-top-2">
-  <h3 class="text-center">Bem-vindo! Faça o login na sua conta</h3>
-  <form (ngSubmit)="onSubmit()">
-    <mat-error class="text-center" *ngIf="error">Preencha corretamente os campos</mat-error>
-    <mat-error class="text-center" *ngIf="!error"></mat-error>
-    <mat-form-field>
-      <mat-label>Login</mat-label>
-      <input matInput type="text" name="login" [(ngModel)]="loginForm.login" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Senha</mat-label>
-      <input
-        matInput
-        type="password"
-        name="senha"
-        [(ngModel)]="loginForm.password"
-      />
-    </mat-form-field>
-    <button mat-raised-button type="submit" class="full-width">Entrar</button>
-    <a routerLink="/user/register" class="link-cadastro margin-top-half full-right">Não possui uma conta? Cadastre-se!</a>
-  </form>
+<div class="login-page">
+  <div class="form">
+    <form (ngSubmit)="onRegister()" class="register-form">
+      <input type="text" placeholder="Nome" [(ngModel)]="registerForm.name" name="name" />
+      <input type="text" placeholder="Login" [(ngModel)]="registerForm.login" name="login" />
+      <input type="password" placeholder="Senha" [(ngModel)]="registerForm.password" name="password" />
+      <input type="text" placeholder="E-mail" [(ngModel)]="registerForm.email" name="email" />
+      <button>Cadastrar</button>
+      <p class="message">Já possui uma conta? <a class="toggle-form">Entre!</a></p>
+    </form>
+
+    <form (ngSubmit)="onLogin()" class="login-form">
+      <input type="text" placeholder="Login" [(ngModel)]="loginForm.login" name="login" />
+      <input type="password" placeholder="Senha" [(ngModel)]="loginForm.password" name="password" />
+      <button>Entrar</button>
+      <p class="message">Não possui uma conta? <a class="toggle-form">Cadastre-se!</a></p>
+    </form>
+  </div>
 </div>
