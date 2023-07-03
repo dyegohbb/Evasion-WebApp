@@ -1,0 +1,30 @@
+<div class="center margin-top-2">
+  <h3 class="text-center">Preencha os dados para seu cadastro:</h3>
+  <form (ngSubmit)="onSubmit()">
+    <mat-error class="text-center" *ngIf="error">Preencha corretamente os campos</mat-error>
+    <mat-error class="text-center" *ngIf="!error"></mat-error>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" name="name" [(ngModel)]="loginForm.name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput type="text" name="email" [(ngModel)]="loginForm.email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input matInput type="text" name="login" [(ngModel)]="loginForm.login" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        type="password"
+        name="senha"
+        [(ngModel)]="loginForm.password"
+      />
+    </mat-form-field>
+    <button mat-raised-button type="submit" class="full-width">Entrar</button>
+    <a routerLink="/user/login" class="link-cadastro margin-top-half full-right">Já tem uma conta? Entre!</a>
+  </form>
+</div>
