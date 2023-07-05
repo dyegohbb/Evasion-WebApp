@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, first } from 'rxjs/operators';
 
+import { AuthApiResponseObject } from '../model/auth-api-response-object';
 import { UserLoginObject } from '../model/user-login-object';
 import { UserObject } from '../model/user-object';
 
@@ -21,7 +22,7 @@ export class UserServiceService {
     const recurso = '/user/login';
     const url = `http://${this.dominio}:${this.porta}${recurso}`;
 
-    return this.http.post(url, data).pipe(
+    return this.http.post<AuthApiResponseObject>(url, data).pipe(
       first(),
       catchError(error => {
         console.error('Erro:', error);
@@ -30,12 +31,30 @@ export class UserServiceService {
     );
   }
 
+  checkLogin() {
+
+    const recurso = '/user/check';
+    const url = `http://${this.dominio}:${this.porta}${recurso}`;
+
+    return this.http.get(url).pipe(
+      first(),
+      catchError(error => {
+        console.log('Erro:');
+        return [];
+      })
+    );
+  }
+
   register(data: UserObject) {
+
+    let headers = new HttpHeaders({
+      Authorization: `Bearer `
+    });
 
     const recurso = '/user/register';
     const url = `http://${this.dominio}:${this.porta}${recurso}`;
 
-    return this.http.post(url, data).pipe(
+    return this.http.post<AuthApiResponseObject>(url, data, { headers }).pipe(
       first(),
       catchError(error => {
         console.error('Erro:', error);

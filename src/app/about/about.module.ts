@@ -14,4 +14,6 @@ import { AboutScreenComponent } from './about-screen/about-screen.component';
     AboutRoutingModule
   ]
 })
-export class AboutModule { }
+export class AboutModule {
+
+}
