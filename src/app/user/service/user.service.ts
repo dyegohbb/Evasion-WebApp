@@ -10,7 +10,7 @@ import { UserObject } from '../model/user-object';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class UserService {
 
   private readonly dominio = 'localhost';
   private readonly porta = 8081;
@@ -39,7 +39,6 @@ export class UserServiceService {
     return this.http.get(url).pipe(
       first(),
       catchError(error => {
-        console.log('Erro:');
         return [];
       })
     );

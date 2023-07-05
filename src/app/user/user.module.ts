@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './component/login/login.component';
-import { UserServiceService } from './service/user-service.service';
+import { UserService } from './service/user.service';
 import { UserRoutingModule } from './user-routing.module';
 
 
@@ -24,6 +24,6 @@ import { UserRoutingModule } from './user-routing.module';
     MatSnackBarModule
   ],
   providers: [
-    UserServiceService]
+    UserService]
 })
 export class UserModule { }

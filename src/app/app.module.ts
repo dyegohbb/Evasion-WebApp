@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SessionServiceService } from './service/session-service.service';
+import { SessionService } from './service/session.service';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { SessionServiceService } from './service/session-service.service';
     MatToolbarModule,
     HttpClientModule
   ],
-  providers: [SessionServiceService],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

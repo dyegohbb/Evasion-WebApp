@@ -3,11 +3,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
+import { SessionService } from '../../../service/session.service';
 import { AuthApiResponseObject } from '../../model/auth-api-response-object';
 import { UserLoginObject } from '../../model/user-login-object';
 import { UserObject } from '../../model/user-object';
-import { UserServiceService } from '../../service/user-service.service';
-import { SessionServiceService } from '../../../service/session-service.service';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,16 +22,15 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private userService: UserServiceService,
+    private userService: UserService,
     private snackBar: MatSnackBar,
-    private sessionService: SessionServiceService
+    private sessionService: SessionService
   ) {}
 
   ngOnInit() {
-    this.userService.checkLogin().subscribe();
-    // Código jQuery aqui
-    $(document).ready(function () {
-      $('.toggle-form').click(function (e) {
+    this.sessionService.checkLogin(this.sessionService.get('access_token'), true).subscribe();
+    $(function() {
+      $(document).on('click', '.toggle-form', function(e) {
         e.preventDefault();
         $('.form').toggleClass('show');
         $('.form form').slideToggle(1000);

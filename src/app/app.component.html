@@ -2,11 +2,11 @@
   <div class="flex space-between">
     <img [src]="evasionLogoUrl" alt="logomarca" />
     <div class="center flex align-items-flex-end">
-      <a>Início</a>
-      <a>Agendar Análise</a>
-      <a>Análise Rápida</a>
-      <a>Inserir Dados</a>
-      <a>Treinamento da IA</a>
+      <a (click)="redirectTo('/about')">Início</a>
+      <a (click)="redirectTo('/custom-analysis')">Agendar Análise</a>
+      <a (click)="redirectTo('/fast-analysis')">Análise Rápida</a>
+      <a (click)="redirectTo('/populate')">Inserir Dados</a>
+      <a (click)="redirectTo('/ia-train')">Treinamento da IA</a>
     </div>
     <img [src]="ifpeLogoUrl" alt="logomarca" />
   </div>
