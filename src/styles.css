@@ -23,6 +23,14 @@ body { margin: 0; }
   padding-bottom: 1rem;
 }
 
+.padding-bottom-2 {
+  padding-bottom: 1rem;
+}
+
+.margin-bottom{
+  margin-bottom: 1rem;
+}
+
 .center{
   text-align: center;
 }
@@ -49,4 +57,16 @@ body { margin: 0; }
 
 .gray {
   background: #f2f2f2;
+}
+
+.margin-top-2 {
+  margin-top: 2rem !important;
+}
+
+.margin-top {
+  margin-top: 1rem !important;
+}
+
+.margin-bottom-2{
+  margin-bottom: 2rem !important;
 }

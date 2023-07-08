@@ -1,8 +1,17 @@
-<div class="container">
-  <h1 class="padding-bottom center">Bem-vindo ao Evasion: Sistema de Prevenção de Evasão e Abandono de Alunos</h1>
-  <p>O Evasion é um sistema desenvolvido com o objetivo de prevenir a evasão e o abandono de alunos. Ele surgiu a partir de um projeto da disciplina Projeto e Prática II, ministrada por Luciano Cabral.</p>
-  <p>Este sistema foi criado para auxiliar docentes e gestores no processo de identificação de alunos em possíveis situações de evasão, fornecendo informações sobre os alunos que podem estar em risco de evasão.</p>
-  <p>O Evasion atua como um mecanismo de alerta, indicando quais alunos podem estar enfrentando dificuldades e requerendo atenção especial por parte dos educadores.</p>
-  <p>Com base nessas informações, os profissionais da educação podem adotar medidas personalizadas para oferecer suporte aos alunos em risco de evasão, buscando prevenir esse problema.</p>
-  <p>Estamos comprometidos em fornecer uma solução eficiente e confiável para enfrentar a evasão e o abandono de alunos, visando melhorar a qualidade da educação e promover oportunidades iguais para todos.</p>
+<div class="box personalized container">
+  <div class="margin-bottom-2">
+    <h1 class="padding-bottom center">Importar dados de estudantes</h1>
+    <div class="center">
+      <button type="button" mat-raised-button (click)="fileInput.click()">Enviar Arquivo</button>
+      <input hidden #fileInput type="file" id="file" (change)="onFileSelected($event)" accept=".txt, .csv">
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="margin-top-2 margin-bottom">
+    <h1 class="padding-bottom center">Treinar IA com os dados atuais</h1>
+    <div class="center">
+      <button type="button" mat-raised-button (click)="train()">Treinar</button>
+    </div>
+  </div>
+
 </div>

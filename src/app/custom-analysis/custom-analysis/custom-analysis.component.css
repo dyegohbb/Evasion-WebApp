@@ -17,14 +17,6 @@
   border-radius: 10px;
 }
 
-.margin-top-2 {
-  margin-top: 2rem !important;
-}
-
-.margin-top {
-  margin-top: 1rem !important;
-}
-
 .card {
   color: #000;
   display: grid;

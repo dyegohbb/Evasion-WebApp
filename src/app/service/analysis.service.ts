@@ -13,11 +13,9 @@ import { StudentAnalysisHistoryResponseObject } from '../custom-analysis/model/S
 export class AnalysisService {
   private readonly dominio = 'localhost';
   private readonly porta = 8081;
-  constructor(
-    private http: HttpClient,
-    private sessionService: SessionService
-  ) {
-  }
+
+
+  constructor(private http: HttpClient, private sessionService: SessionService) { }
 
   schedule(data: ScheduleObjectApiRequest) {
 
@@ -87,7 +85,7 @@ export class AnalysisService {
     const url = `http://${this.dominio}:${this.porta}${recurso}/${uuid}`;
 
     console.log(url)
-    return this.http.post(url, {} , { headers }).pipe(
+    return this.http.post(url, {}, { headers }).pipe(
       first(),
       catchError((error) => {
         console.error('Erro:', error);

@@ -1,8 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import{IaTrainService} from './service/ia-train.service';
 
-import { IATrainRoutingModule } from './iatrain-routing.module';
 import { IaTrainComponent } from './ia-train/ia-train.component';
+import { IATrainRoutingModule } from './iatrain-routing.module';
 
 
 @NgModule({
@@ -11,7 +16,12 @@ import { IaTrainComponent } from './ia-train/ia-train.component';
   ],
   imports: [
     CommonModule,
-    IATrainRoutingModule
-  ]
+    IATrainRoutingModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule
+  ],
+  providers: [IaTrainService]
 })
 export class IaTrainModule { }

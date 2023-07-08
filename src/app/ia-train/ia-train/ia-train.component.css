@@ -1,0 +1,12 @@
+.box.personalized {
+  display: flex;
+  flex-direction: column;
+  font-family: Raleway;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  max-height: 720px;
+  text-align: justify;
+  max-width: 900px;
+  overflow-y: auto;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
