@@ -10,3 +10,13 @@
   overflow-y: auto;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
+
+.chart{
+  max-width: 10rem;
+  max-height: 10rem;
+}
+
+.chart.high-score{
+  max-width: 13rem;
+  max-height: 13rem;
+}

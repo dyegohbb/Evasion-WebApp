@@ -70,3 +70,27 @@ body { margin: 0; }
 .margin-bottom-2{
   margin-bottom: 2rem !important;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.red {
+  background: #e44848bb !important;
+}
+
+.green{
+  background: #3dd15db0 !important;
+}
+
+.text-center{
+  text-align: center !important;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.justify-center{
+  justify-content: center;
+}
