@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AboutRoutingModule } from './about-routing.module';
-import { AboutScreenComponent } from './about-screen/about-screen.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
   declarations: [
-    AboutScreenComponent
+    AboutComponent
   ],
   imports: [
     CommonModule,

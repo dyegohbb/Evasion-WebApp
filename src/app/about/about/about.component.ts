@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { SessionService } from '../../service/session.service';
 
 @Component({
-  selector: 'app-about-screen',
-  templateUrl: './about-screen.component.html',
-  styleUrls: ['./about-screen.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class AboutScreenComponent {
+export class AboutComponent {
 
   constructor(private sessionService: SessionService) { }
 

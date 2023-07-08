@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomAnalysisRoutingModule } from './custom-analysis-routing.module';
-import { CustomAnalysisScreenComponent } from './custom-analysis-screen/custom-analysis-screen.component';
+import { CustomAnalysisComponent } from './custom-analysis/custom-analysis.component';
 
 
 @NgModule({
   declarations: [
-    CustomAnalysisScreenComponent
+    CustomAnalysisComponent
   ],
   imports: [
     CommonModule,
