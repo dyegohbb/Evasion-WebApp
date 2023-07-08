@@ -16,49 +16,6 @@ import { AnalysisService } from './../../service/analysis.service';
 import { ScheduleObjectApiRequest } from './../model/schedule-object-api-request';
 import {StudentAnalysisHistoryResponseObject} from './../model/StudentAnalysisHistoryResponseObject';
 
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
-
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
-
-
-
 @Component({
   selector: 'app-custom-analysis',
   templateUrl: './custom-analysis.component.html',
@@ -67,14 +24,12 @@ const NAMES: string[] = [
 export class CustomAnalysisComponent implements AfterViewInit{
   displayedColumns: string[] = ['id', 'name', 'date', 'situation'];
   dataSource: MatTableDataSource<StudentAnalysisHistory>;
-  studentAnalysisHistory: StudentAnalysisHistory[] = [{id: '-', name: '-', date: '-', situation: '-'}]
+  studentAnalysisHistory: StudentAnalysisHistory[] = [];
+  scheduleObjectList: SheduleObject[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
-  previousButton: SafeUrl = '';
-  nextButton: SafeUrl = '';
   customOptions: OwlOptions = {
     loop: false,
     autoplay: false,
@@ -99,18 +54,11 @@ export class CustomAnalysisComponent implements AfterViewInit{
     },
   };
 
-  scheduleObjectList: SheduleObject[] = [];
-
   constructor(
     private sessionService: SessionService,
     private analysisService: AnalysisService,
     public dialog: MatDialog
   ) {
-
-    const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(this.studentAnalysisHistory);
 
     this.dataSource = new MatTableDataSource(this.studentAnalysisHistory);
     this.analysisService.listStudentAnalisysHistory().subscribe({next: async (response) => {
@@ -118,21 +66,6 @@ export class CustomAnalysisComponent implements AfterViewInit{
       this.dataSource = new MatTableDataSource(this.studentAnalysisHistory);
     }});
   }
-
-   createNewUser(id: number): UserData {
-    const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-      ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-      '.';
-
-    return {
-      id: id.toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-    };
-   }
 
   async prepareStudentAnalysisHistory(objList: StudentAnalysisHistoryResponseObject[]){
     this.studentAnalysisHistory = objList.map((element) => {
