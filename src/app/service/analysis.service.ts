@@ -5,6 +5,7 @@ import { catchError, first } from 'rxjs/operators';
 
 import { ScheduleObjectApiRequest } from '../custom-analysis/model/schedule-object-api-request';
 import { SessionService } from './session.service';
+import { StudentAnalysisHistoryResponseObject } from '../custom-analysis/model/StudentAnalysisHistoryResponseObject'
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +52,8 @@ export class AnalysisService {
     return this.http.get<any>(url, { headers }).pipe(
       first(),
       catchError((error) => {
-        return [];
+        console.error('Erro:', error);
+        return throwError(() => 'Ocorreu um erro na requisição.');
       })
     );
   }
@@ -84,7 +86,27 @@ export class AnalysisService {
     const recurso = '/analysis/schedule/restaure';
     const url = `http://${this.dominio}:${this.porta}${recurso}/${uuid}`;
 
+    console.log(url)
     return this.http.post(url, {} , { headers }).pipe(
+      first(),
+      catchError((error) => {
+        console.error('Erro:', error);
+        return throwError(() => 'Ocorreu um erro na requisição.');
+      })
+    );
+  }
+
+  listStudentAnalisysHistory() {
+
+    let token = this.sessionService.get('access_token');
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    const recurso = '/analysis/student/history';
+    const url = `http://${this.dominio}:${this.porta}${recurso}`;
+
+    return this.http.get<StudentAnalysisHistoryResponseObject[]>(url, { headers }).pipe(
       first(),
       catchError((error) => {
         console.error('Erro:', error);

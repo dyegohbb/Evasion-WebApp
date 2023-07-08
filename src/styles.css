@@ -12,7 +12,7 @@ body { margin: 0; }
   font-family: Raleway;
   margin: 3rem auto;
   padding: 2rem 2rem 2rem 2rem;
-  max-height: 600px;
+  max-height: 650px;
   text-align: justify;
   max-width: 900px;
   overflow-y: auto;
@@ -31,8 +31,12 @@ body { margin: 0; }
   display: flex;
 }
 
-.space-between{
+.space-around{
   justify-content: space-around;
+}
+
+.space-between{
+  justify-content: space-between;
 }
 
 .align-items-flex-end{
