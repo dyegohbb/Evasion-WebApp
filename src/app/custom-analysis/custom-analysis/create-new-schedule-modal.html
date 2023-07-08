@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Agendar nova Análise</h1>
+<div mat-dialog-content>
+  Qual o dia de execução da análise?
+</div>
+<input type="number" placeholder="Nome" [(ngModel)]="schedule.day" name="name" />
+<div mat-dialog-content>
+  Qual a recorrencia da análise?
+</div>
+<input type="text" placeholder="Nome" [(ngModel)]="schedule.recurrence" name="name" />
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button (click)="newSchedule()">Agendar</button>
+</div>

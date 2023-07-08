@@ -4,4 +4,5 @@ export interface SheduleObject {
   nextExecution: string;
   recurrence: string;
   uuid: string;
+  deleted: boolean;
 }

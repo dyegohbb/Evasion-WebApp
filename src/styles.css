@@ -39,6 +39,10 @@ body { margin: 0; }
   align-items: flex-end;
 }
 
+.justify-content-flex-end{
+  justify-content: flex-end;
+}
+
 .gray {
   background: #f2f2f2;
 }

@@ -1,3 +1,32 @@
 <div class="box flex">
-  <h1 class="padding-bottom">Análises agendadas:</h1>
+  <div class="flex justify-content-flex-end">
+    <a class="schedule" (click)="openDialog('0ms', '0ms')">Agendar Análise</a>
+  </div>
+
+  <div class="margin-top-2">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let schedule of scheduleObjectList">
+        <ng-template class="slide" carouselSlide [id]="schedule.uuid">
+          <div class="card work">
+            <div class="img-section" [ngClass]="{green: !schedule.deleted, red: schedule.deleted}"></div>
+            <div class="card-desc">
+            <div class="card-header">
+            <div class="card-title">Próx. Execução:</div>
+            <div class="card-menu" [matMenuTriggerFor]="menu" #menuTrigger>
+            <div class="dot green" [ngClass]="{green: !schedule.deleted, red: schedule.deleted}"></div>
+            <div class="dot green" [ngClass]="{green: !schedule.deleted, red: schedule.deleted}"></div>
+              <div class="dot green" [ngClass]="{green: !schedule.deleted, red: schedule.deleted}"></div>
+              </div>
+            </div>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngIf="!schedule.deleted" (click)="deleteSchedule(schedule.uuid)">Apagar</button>
+              <button mat-menu-item *ngIf="schedule.deleted" (click)="restaureSchedule(schedule.uuid)">Restaurar</button>
+            </mat-menu>
+            <div class="card-time">{{schedule.nextExecution}}</div>
+            <p class="recent">{{schedule.recurrence}} - Dia: {{schedule.day}}</p>
+          </div></div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
 </div>

@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SessionService } from './service/session.service';
 import { AnalysisService } from './service/analysis.service';
+import { ModalModule } from 'angular-custom-modal';
+import { MatDialog } from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -19,9 +22,10 @@ import { AnalysisService } from './service/analysis.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
-  providers: [SessionService, AnalysisService],
+  providers: [SessionService, AnalysisService, ModalModule, MatDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
