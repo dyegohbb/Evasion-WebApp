@@ -15,6 +15,9 @@ import { SheduleObject } from '../model/shedule-object';
 import { AnalysisService } from './../../service/analysis.service';
 import { ScheduleObjectApiRequest } from './../model/schedule-object-api-request';
 import {StudentAnalysisHistoryResponseObject} from './../model/StudentAnalysisHistoryResponseObject';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-custom-analysis',
@@ -185,7 +188,7 @@ export class CustomAnalysisComponent implements AfterViewInit{
   selector: 'create-new-schedule-dialog',
   templateUrl: 'create-new-schedule-modal.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, FormsModule],
+  imports: [MatDialogModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule],
 })
 export class CreateNewScheduleDialog {
   schedule: ScheduleObjectApiRequest = {
@@ -209,6 +212,5 @@ export class CreateNewScheduleDialog {
         next: (body: SheduleObject[]) => this.onNoClick(),
         error: (error) => console.log(error),
       });
-    console.log('abacate');
   }
 }
