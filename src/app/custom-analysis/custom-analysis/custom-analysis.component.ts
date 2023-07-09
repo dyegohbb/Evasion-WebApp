@@ -112,6 +112,11 @@ export class CustomAnalysisComponent implements AfterViewInit{
     this.analysisService
       .listShedule()
       .subscribe({ next: (body: SheduleObject[]) => this.prepareObject(body) });
+
+    this.analysisService.listStudentAnalisysHistory().subscribe({next: async (response) => {
+      await this.prepareStudentAnalysisHistory(response);
+      this.dataSource = new MatTableDataSource(this.studentAnalysisHistory);
+    }});
   }
 
   prepareObject(body: SheduleObject[]) {
@@ -122,20 +127,20 @@ export class CustomAnalysisComponent implements AfterViewInit{
         element.nextExecution = new Date(
           element.nextExecution
         ).toLocaleDateString();
+      }
 
-        switch (element.recurrence) {
-          case 'MONTHLY':
-            element.recurrence = 'Mensal';
-            break;
-          case 'SEMESTERLY':
-            element.recurrence = 'Semestral';
-            break;
-          case 'YEARLY':
-            element.recurrence = 'Anual';
-            break;
-          default:
-            break;
-        }
+      switch (element.recurrence) {
+        case 'MONTHLY':
+          element.recurrence = 'Mensal';
+          break;
+        case 'SEMESTERLY':
+          element.recurrence = 'Semestral';
+          break;
+        case 'YEARLY':
+          element.recurrence = 'Anual';
+          break;
+        default:
+          break;
       }
 
       return element;
@@ -181,6 +186,12 @@ export class CustomAnalysisComponent implements AfterViewInit{
       $('.owl-prev').css('background', 'white');
       $('.owl-next').css('background', 'white');
     }, 50);
+  }
+
+  fastAnalysis(){
+    this.analysisService.fastAnalysis().subscribe({
+      error: (error) => console.log(error),
+    });
   }
 }
 

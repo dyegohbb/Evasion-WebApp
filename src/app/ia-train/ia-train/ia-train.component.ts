@@ -78,10 +78,10 @@ export class IaTrainComponent {
     let kappa = (this.metricsHistory.kappa + 1) * 50;
     kappa =  Number(kappa.toFixed(2));
 
-    this.accuracyChartDatasets = [{ data: [100 - acc, acc], label: ' Porcentagem' }]
-    this.highScoreChartDatasets = [{ data: [100 - highScore, highScore], label: ' Porcentagem' }]
-    this.f1ChartDatasets = [{ data: [100 - f1, f1], label: ' Porcentagem' }]
-    this.recallChartDatasets = [{ data: [100 - recall, recall], label: ' Porcentagem' }]
-    this.kappaChartDatasets = [{ data: [100 - kappa, kappa], label: ' Porcentagem' }]
+    this.accuracyChartDatasets = [{ data: [100 - acc, acc], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }]
+    this.highScoreChartDatasets = [{ data: [100 - highScore, highScore], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }]
+    this.f1ChartDatasets = [{ data: [100 - f1, f1], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }]
+    this.recallChartDatasets = [{ data: [100 - recall, recall], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }]
+    this.kappaChartDatasets = [{ data: [100 - kappa, kappa], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }]
   }
 }

@@ -1,7 +1,10 @@
 <div class="box personalized flex">
   <div class="flex space-between">
     <mat-icon class="pointer" (click)="refresh()">refresh</mat-icon>
-    <a class="schedule" (click)="openDialog('0ms', '0ms')">Agendar Análise</a>
+    <div>
+      <a class="schedule grayhover margin-right" (click)="openDialog('0ms', '0ms')">Agendar Análise</a>
+      <a class="schedule grayhover" (click)="fastAnalysis()">Análise rápida</a>
+    </div>
   </div>
 
   <div class="margin-top">
@@ -67,7 +70,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">Nenhuma informação encontrada para o filtro: "{{input.value}}"</td>
+          <td class="mat-cell" colspan="4">Nenhuma informação encontrada</td>
         </tr>
       </table>
 
