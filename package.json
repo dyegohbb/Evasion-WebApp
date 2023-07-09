@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
     "angular-custom-modal": "^1.2.0",
+    "angular-notifier": "^14.0.0",
     "animate.css": "^4.1.1",
     "chart.js": "^4.3.0",
     "font-awesome": "^4.7.0",

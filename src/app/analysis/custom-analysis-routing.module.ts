@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomAnalysisComponent } from './custom-analysis/custom-analysis.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 const routes: Routes = [
-  { path: 'custom-analysis', component: CustomAnalysisComponent },
+  { path: 'custom-analysis', component: AnalysisComponent },
   { path: '', pathMatch: 'full', redirectTo: 'custom-analysis'  },
 ];
 

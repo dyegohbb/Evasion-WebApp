@@ -12,12 +12,12 @@ import { MatTableModule } from '@angular/material/table';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { CustomAnalysisRoutingModule } from './custom-analysis-routing.module';
-import { CustomAnalysisComponent } from './custom-analysis/custom-analysis.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 
 @NgModule({
   declarations: [
-    CustomAnalysisComponent,
+    AnalysisComponent,
     ],
   imports: [
     CommonModule,
@@ -34,4 +34,4 @@ import { CustomAnalysisComponent } from './custom-analysis/custom-analysis.compo
     MatFormFieldModule
   ]
 })
-export class CustomAnalysisModule { }
+export class AnalysisModule { }

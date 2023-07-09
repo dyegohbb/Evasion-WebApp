@@ -24,11 +24,11 @@ export class IaTrainComponent {
 
   // Doughnut
   public doughnutChartLabels: string[] = [];
-  public accuracyChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem' }];
-  public f1ChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem' }];
-  public highScoreChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem' }];
-  public kappaChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem' }];
-  public recallChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#000', "#fff"] }];
+  public accuracyChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }];
+  public f1ChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }];
+  public highScoreChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }];
+  public kappaChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }];
+  public recallChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [{ data: [1, 0], label: ' Porcentagem', backgroundColor: ['#f2f2f2', "#3dd15db0"] }];
 
   public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
     responsive: false

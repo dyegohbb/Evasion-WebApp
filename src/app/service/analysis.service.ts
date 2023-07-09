@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, first } from 'rxjs/operators';
 
-import { ScheduleObjectApiRequest } from '../custom-analysis/model/schedule-object-api-request';
-import { StudentAnalysisHistoryResponseObject } from '../custom-analysis/model/StudentAnalysisHistoryResponseObject';
+import { ScheduleObjectApiRequest } from '../analysis/model/schedule-object-api-request';
+import { StudentAnalysisHistoryResponseObject } from '../analysis/model/StudentAnalysisHistoryResponseObject';
 import { SessionService } from './session.service';
 
 @Injectable({

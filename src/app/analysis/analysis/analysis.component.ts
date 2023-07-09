@@ -1,4 +1,4 @@
-import { StudentAnalysisHistory } from './../model/StudentAnalysisHistory';
+import { StudentAnalysisHistory } from '../model/StudentAnalysisHistory';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,23 +12,24 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { SessionService } from '../../service/session.service';
 import { SheduleObject } from '../model/shedule-object';
-import { AnalysisService } from './../../service/analysis.service';
-import { ScheduleObjectApiRequest } from './../model/schedule-object-api-request';
-import {StudentAnalysisHistoryResponseObject} from './../model/StudentAnalysisHistoryResponseObject';
+import { AnalysisService } from '../../service/analysis.service';
+import { ScheduleObjectApiRequest } from '../model/schedule-object-api-request';
+import {StudentAnalysisHistoryResponseObject} from '../model/StudentAnalysisHistoryResponseObject';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
 @Component({
-  selector: 'app-custom-analysis',
-  templateUrl: './custom-analysis.component.html',
-  styleUrls: ['./custom-analysis.component.css'],
+  selector: 'app-analysis',
+  templateUrl: './analysis.component.html',
+  styleUrls: ['./analysis.component.css'],
 })
-export class CustomAnalysisComponent implements AfterViewInit{
+export class AnalysisComponent implements AfterViewInit{
   displayedColumns: string[] = ['id', 'name', 'date', 'situation'];
   dataSource: MatTableDataSource<StudentAnalysisHistory>;
   studentAnalysisHistory: StudentAnalysisHistory[] = [];
   scheduleObjectList: SheduleObject[] = [];
+  isScreenLoading: boolean = true;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -82,6 +83,7 @@ export class CustomAnalysisComponent implements AfterViewInit{
       };
       return obj;
     });
+    this.isScreenLoading = false
   }
 
   ngAfterViewInit() {
@@ -109,6 +111,7 @@ export class CustomAnalysisComponent implements AfterViewInit{
   }
 
   refresh(){
+    this.toggleRefreshSpin();
     this.analysisService
       .listShedule()
       .subscribe({ next: (body: SheduleObject[]) => this.prepareObject(body) });
@@ -116,6 +119,7 @@ export class CustomAnalysisComponent implements AfterViewInit{
     this.analysisService.listStudentAnalisysHistory().subscribe({next: async (response) => {
       await this.prepareStudentAnalysisHistory(response);
       this.dataSource = new MatTableDataSource(this.studentAnalysisHistory);
+      this.toggleRefreshSpin();
     }});
   }
 
@@ -179,6 +183,10 @@ export class CustomAnalysisComponent implements AfterViewInit{
     dialogRef.afterClosed().subscribe(() => {
       this.refresh();
     });
+  }
+
+  toggleRefreshSpin() {
+    $('.refresh').toggleClass('active');
   }
 
   style() {
