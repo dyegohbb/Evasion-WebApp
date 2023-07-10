@@ -11,7 +11,7 @@ import { SessionService } from './session.service';
   providedIn: 'root',
 })
 export class AnalysisService {
-  private readonly dominio = 'localhost';
+  private readonly dominio = '3.22.198.174';
   private readonly porta = 8081;
 
 

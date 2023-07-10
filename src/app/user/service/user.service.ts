@@ -12,7 +12,7 @@ import { UserObject } from '../model/user-object';
 })
 export class UserService {
 
-  private readonly dominio = 'localhost';
+  private readonly dominio = '3.22.198.174';
   private readonly porta = 8081;
 
   constructor(private http: HttpClient) { }

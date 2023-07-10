@@ -7,7 +7,7 @@ import { catchError, first, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SessionService {
-  private readonly dominio = 'localhost';
+  private readonly dominio = '3.22.198.174';
   private readonly porta = 8081;
 
   constructor(private http: HttpClient, private router: Router) { }

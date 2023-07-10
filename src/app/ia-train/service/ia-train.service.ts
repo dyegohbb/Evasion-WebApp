@@ -10,7 +10,7 @@ import { MetricsHistory } from '../model/MetricsHistory';
   providedIn: 'root'
 })
 export class IaTrainService {
-  private readonly dominio = 'localhost';
+  private readonly dominio = '3.22.198.174';
   private readonly porta = 8081;
 
   constructor(private http: HttpClient, private sessionService: SessionService) { }
